@@ -1,7 +1,7 @@
-package co.unicauca.justeat.client.infra;
+package co.unicauca.restaurant.client.infra;
 
 
-import co.unicauca.restaurante.commons.infra.Utilities;
+import co.unicauca.restaurant.commons.infra.Utilities;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
