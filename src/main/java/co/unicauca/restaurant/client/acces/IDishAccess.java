@@ -21,7 +21,7 @@ public interface IDishAccess {
      * @return  booleano confirmando si la actualización fue exitosa o no.
      * @throws java.lang.Exception
      */
-    public boolean update(Dish newDish) throws Exception;;
+    public boolean update(Dish newDish) throws Exception;
     /**
      * Busca un Plato(Dish) por su codigo
      * @param id identificador del plato
