@@ -1,6 +1,6 @@
-package co.unicauca.justeat.client.infra;
+package co.unicauca.restaurant.client.infra;
 
-import co.unicauca.restaurante.commons.infra.Utilities;
+import co.unicauca.restaurant.commons.infra.Utilities;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -35,7 +35,7 @@ public class RestaurantSocket {
     private final int PORT = Integer.parseInt(Utilities.loadProperty("server.port"));
 
     /**
-     * Envia una solicitud desde la aplicación cliente al servidor mediate el
+     * Envia una solicitud desde la aplicación cliente al servidor mediante el
      * socket
      *
      * @param requestJson solicitud en formato json
