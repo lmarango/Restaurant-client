@@ -58,6 +58,11 @@ public class User {
      * Constructor no parametrizado por defecto
      */
     public User() {}
+
+    public User(String userLoginName, String userPassword) {
+        this.userLoginName = userLoginName;
+        this.userPassword = userPassword;
+    }
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Getters">
     /**
