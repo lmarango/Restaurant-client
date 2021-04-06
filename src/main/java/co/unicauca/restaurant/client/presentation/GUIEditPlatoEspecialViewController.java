@@ -1,5 +1,10 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.unicauca.restaurant.client.presentation;
+
 import co.unicauca.restaurant.client.acces.DishFactory;
 import co.unicauca.restaurant.client.acces.IDishAccess;
 import co.unicauca.restaurant.client.domain.services.DishService;
@@ -7,14 +12,18 @@ import static co.unicauca.restaurant.client.infra.Messages.successMessage;
 import co.unicauca.restaurant.commons.domain.Dish;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+
 /**
  *
  * @author HP
  */
-public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
+public class GUIEditPlatoEspecialViewController extends javax.swing.JFrame {
 
-   String ruta = null;
-    public GUIAddPlatoEspecialViewController() {
+    /**
+     * Creates new form GUIEditPlatoEspecialViewController
+     */
+    String ruta = null;
+    public GUIEditPlatoEspecialViewController() {
         initComponents();
     }
 
@@ -27,28 +36,28 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbl_IdPlato = new javax.swing.JLabel();
         lbl_NomPlato = new javax.swing.JLabel();
         lbl_DescripPlato = new javax.swing.JLabel();
         lbl_valorPlato = new javax.swing.JLabel();
-        btn_AddPlato = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
+        btn_EditPlato = new javax.swing.JButton();
+        btn_Salir = new javax.swing.JButton();
         txt_IdPlato = new javax.swing.JTextField();
         txt_NomPlato = new javax.swing.JTextField();
         txt_DescripPlato = new javax.swing.JTextField();
         txt_valorPlato = new javax.swing.JTextField();
         lbl_ImagenPlato = new javax.swing.JLabel();
         btn_ImagenPlato = new javax.swing.JButton();
+        btn_BuscarIdPlate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Agregar Plato Especial");
+        jLabel1.setText("Modificar Plato Especial");
 
         lbl_IdPlato.setText("Id");
 
@@ -58,17 +67,17 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
 
         lbl_valorPlato.setText("Valor");
 
-        btn_AddPlato.setText("Agregar Plato");
-        btn_AddPlato.addActionListener(new java.awt.event.ActionListener() {
+        btn_EditPlato.setText("Modificar Plato");
+        btn_EditPlato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AddPlatoActionPerformed(evt);
+                btn_EditPlatoActionPerformed(evt);
             }
         });
 
-        btn_salir.setText("Salir");
-        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+        btn_Salir.setText("Salir");
+        btn_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salirActionPerformed(evt);
+                btn_SalirActionPerformed(evt);
             }
         });
 
@@ -88,15 +97,19 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
             }
         });
 
+        btn_BuscarIdPlate.setText("Buscar");
+        btn_BuscarIdPlate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarIdPlateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,11 +119,14 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
                             .addComponent(lbl_valorPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_IdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_NomPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_DescripPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_valorPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(80, 80, 80)
+                            .addComponent(txt_valorPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt_IdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_BuscarIdPlate)))
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_ImagenPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -118,17 +134,20 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
                                 .addComponent(btn_ImagenPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(btn_AddPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btn_salir)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(btn_EditPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btn_Salir))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_IdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,8 +158,10 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addComponent(lbl_valorPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txt_IdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_IdPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_BuscarIdPlate))
+                        .addGap(8, 8, 8)
                         .addComponent(txt_NomPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(txt_DescripPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,8 +173,8 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
                         .addComponent(btn_ImagenPlato)))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_AddPlato)
-                    .addComponent(btn_salir))
+                    .addComponent(btn_EditPlato)
+                    .addComponent(btn_Salir))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -171,16 +192,7 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        // TODO add your handling code here: Boton salir
-        System.exit(0);
-    }//GEN-LAST:event_btn_salirActionPerformed
-
-    private void txt_NomPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NomPlatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NomPlatoActionPerformed
-
-    private void btn_AddPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddPlatoActionPerformed
+    private void btn_EditPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditPlatoActionPerformed
         IDishAccess service = DishFactory.getInstance().getDishService();
         // Inyecta la dependencia
         DishService plateService = new DishService(service);
@@ -193,15 +205,30 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
         //plate.setDishImage(Byte.valueOf(lbl_ImagenPlato.getText()));
 
         try {
-            String response = plateService.save(plate);
-            successMessage("Plato Especial "+ response + " agregado con éxito.", "Atención");
-            clearControls();            
-            btn_AddPlato.setVisible(false);
+            Boolean response = plateService.update(plate);
+            if(response==true){
+                successMessage("Plato Especial fue modificado con éxito.", "Atención");
+                clearControls();            
+                btn_EditPlato.setVisible(false);
+            }else{
+                successMessage("Ocurrio un error al modificar el Plato Especial .", "Atención");
+                clearControls();            
+                btn_EditPlato.setVisible(false);
+            }            
 
         } catch (Exception ex) {
             successMessage(ex.getMessage(), "Atención");
         }
-    }//GEN-LAST:event_btn_AddPlatoActionPerformed
+    }//GEN-LAST:event_btn_EditPlatoActionPerformed
+
+    private void btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirActionPerformed
+        // TODO add your handling code here: Boton salir
+        System.exit(0);
+    }//GEN-LAST:event_btn_SalirActionPerformed
+
+    private void txt_NomPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NomPlatoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NomPlatoActionPerformed
 
     private void btn_ImagenPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ImagenPlatoActionPerformed
         // TODO add your handling code here:
@@ -212,6 +239,41 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
             lbl_ImagenPlato.setIcon(new ImageIcon(ruta));
         }
     }//GEN-LAST:event_btn_ImagenPlatoActionPerformed
+
+    private void btn_BuscarIdPlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarIdPlateActionPerformed
+        String id = txt_IdPlato.getText().trim();
+
+        IDishAccess service = DishFactory.getInstance().getDishService();
+        // Inyecta la dependencia
+        DishService plateService = new DishService(service);
+        if (id.equals("")) {
+            btn_EditPlato.setVisible(false);
+            txt_NomPlato.requestFocus();
+            return;
+        }
+
+        Dish plate;
+        try {
+            plate = plateService.find(Integer.parseInt(id));
+        } catch (Exception ex) {
+            clearControls();
+            successMessage(ex.getMessage(), "Atención");
+            btn_EditPlato.setVisible(true);
+            return;
+        }
+        clearControls();
+        showData(plate);
+    }//GEN-LAST:event_btn_BuscarIdPlateActionPerformed
+    /**
+     * Muestra los datos en el formulario
+     *
+     * @param plate plato especial
+     */
+    private void showData(Dish plate) {
+        txt_NomPlato.setText(plate.getDishName());
+        txt_DescripPlato.setText(plate.getDishDescription());
+        txt_valorPlato.setText(String.valueOf(plate.getDishPrice()));
+    }
     public void clearControls() {
         txt_IdPlato.setText("");
         txt_NomPlato.setText("");
@@ -236,29 +298,29 @@ public class GUIAddPlatoEspecialViewController extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIAddPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIAddPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIAddPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIAddPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditPlatoEspecialViewController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIAddPlatoEspecialViewController().setVisible(true);
+                new GUIEditPlatoEspecialViewController().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_AddPlato;
+    private javax.swing.JButton btn_BuscarIdPlate;
+    private javax.swing.JButton btn_EditPlato;
     private javax.swing.JButton btn_ImagenPlato;
-    private javax.swing.JButton btn_salir;
-    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JButton btn_Salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_DescripPlato;
